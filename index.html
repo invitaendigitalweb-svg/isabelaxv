@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Mis XV Años - Invitación</title>
+
+<!-- Miniatura para WhatsApp y Redes Sociales -->
+<meta property="og:title" content="Mis XV Años - Invitación">
+<meta property="og:description" content="Te invito a celebrar mis XV Años. ¡Acompáñame en este día tan especial!">
+<meta property="og:image" content="portada.jpg">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mis XV Años - Invitación">
+<meta name="twitter:description" content="Te invito a celebrar mis XV Años. ¡Acompáñame en este día tan especial!">
+<meta name="twitter:image" content="portada.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f7f2eb;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.fullscreen-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.envelope-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    /* Color Rosa Palo #EDC5B5 */
+    background-color: #EDC5B5;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.15) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            0deg,
+            rgba(255,255,255,0.15) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,255,255,0.25) 0%,
+            rgba(0,0,0,0.03) 100%
+        );
+
+    background-size:
+        4px 4px,
+        4px 4px,
+        100% 100%;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 1500px;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   SOLAPAS
+========================= */
+
+.flap {
+    position: absolute;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-style: solid;
+
+    transition:
+        transform 0.9s cubic-bezier(
+            0.25,
+            0.46,
+            0.45,
+            0.94
+        );
+
+    backface-visibility: hidden;
+}
+
+.envelope-flap-top {
+    top: 0;
+
+    border-width:
+        48vh
+        50vw
+        0
+        50vw;
+
+    border-color:
+        #E2B3A2
+        transparent
+        transparent
+        transparent;
+
+    transform-origin: top;
+
+    z-index: 4;
+}
+
+.envelope-flap-bottom {
+    bottom: 0;
+
+    border-width:
+        0
+        50vw
+        48vh
+        50vw;
+
+    border-color:
+        transparent
+        transparent
+        #C89685
+        transparent;
+
+    transform-origin: bottom;
+
+    z-index: 2;
+}
+
+.envelope-flap-left {
+    top: 0;
+
+    border-width:
+        50vh
+        0
+        50vh
+        50vw;
+
+    border-color:
+        transparent
+        transparent
+        transparent
+        #DAA695;
+
+    z-index: 1;
+}
+
+.envelope-flap-right {
+    top: 0;
+    right: 0;
+    left: auto;
+
+    border-width:
+        50vh
+        50vw
+        50vh
+        0;
+
+    border-color:
+        transparent
+        #DAA695
+        transparent
+        transparent;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   SELLO
+========================= */
+
+.center-group {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+.seal {
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.15);
+
+    margin-bottom: 20px;
+
+    border:
+        2px solid rgba(255,255,255,0.8);
+}
+
+.view-text {
+    font-size: 14px;
+
+    color: #ffffff;
+
+    font-weight: 400;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2.5px;
+
+    opacity: 0.95;
+
+    pointer-events: none;
+
+    background-color:
+        rgba(200, 150, 133, 0.9);
+
+    padding:
+        5px 12px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+/* =========================
+   CONTENIDO
+========================= */
+
+.invitation-content {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease 0.4s;
+
+    z-index: 3;
+
+    background-color: #f7f2eb;
+
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.card-wrapper {
+    width: 100%;
+
+    max-width: 420px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0;
+
+    padding-bottom: 50px;
+}
+
+.invitation-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.invitation-img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   CONTADOR DE DÍAS
+========================= */
+
+.countdown-container {
+    width: 100%;
+    background-color: #F5F3F1;
+    padding: 30px 15px;
+    margin: 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.countdown-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.countdown-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    color: #6E4A35;
+    margin-bottom: 12px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 18px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #6E4A35;
+    line-height: 1;
+}
+
+.time-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: #8C6A56;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+}
+
+.time-separator {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: #6E4A35;
+    opacity: 0.6;
+}
+
+
+/* =========================
+   SECCIÓN DE UBICACIONES
+========================= */
+
+.location-container {
+    width: 100%;
+    background-color: #F9EEEB;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.location-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-location {
+    display: inline-block;
+    background-color: #EDC5B5;
+    color: #6E4A35;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 12px 26px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(110, 74, 53, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-location:hover {
+    background-color: #E2B3A2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(110, 74, 53, 0.15);
+}
+
+
+/* =========================
+   ITINERARIO
+========================= */
+
+.itinerario-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 25px 15px 35px;
+    font-family: "Cinzel", Georgia, serif;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.itinerario-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.itinerario {
+    position: relative;
+    width: 100%;
+}
+
+.evento {
+    display: grid;
+    grid-template-columns: 1fr 34px 1fr;
+    align-items: center;
+    min-height: 105px;
+    position: relative;
+}
+
+.linea {
+    height: 100%;
+    min-height: 105px;
+    width: 1px;
+    background: rgba(132, 106, 82, 0.38);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.punto {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #846a52;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.9);
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+    min-height: 105px;
+}
+
+.contenido.izquierda {
+    justify-content: flex-end;
+    padding-right: 28px;
+}
+
+.contenido.derecha {
+    justify-content: flex-start;
+    padding-left: 28px;
+}
+
+.icono {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icono img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+    display: block;
+    opacity: 0.72;
+    filter: sepia(12%);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.icono:hover img {
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 180px;
+}
+
+.texto-izquierda {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.hora {
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #765640;
+    line-height: 1.2;
+}
+
+.momento {
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    color: #665b54;
+}
+
+@media (max-width: 480px) {
+    .itinerario-container {
+        padding: 20px 8px 30px;
+    }
+
+    .evento {
+        grid-template-columns: 1fr 28px 1fr;
+        min-height: 100px;
+    }
+
+    .linea {
+        min-height: 100px;
+    }
+
+    .contenido.izquierda {
+        padding-right: 18px;
+    }
+
+    .contenido.derecha {
+        padding-left: 18px;
+    }
+
+    .icono {
+        width: 42px;
+        height: 42px;
+    }
+
+    .icono img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .hora {
+        font-size: 15px;
+    }
+
+    .momento {
+        font-size: 10px;
+    }
+
+    .texto {
+        max-width: 135px;
+    }
+}
+
+
+/* =========================
+   SECCIÓN ESPECIAL CON FONDO Y DESPLAZAMIENTO
+========================= */
+
+.background-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overlay-img {
+    position: relative;
+    z-index: 2;
+    width: 48%;
+    height: auto;
+    display: block;
+    box-shadow: none;
+    border-radius: 0;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease-out;
+}
+
+/* Estado inicial: Monitos viene de la izquierda */
+.slide-from-left {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+/* Estado inicial: Vestimenta viene de la derecha */
+.slide-from-right {
+    opacity: 0;
+    transform: translateX(100px);
+}
+
+/* Estado animado al hacer scroll */
+.slide-from-left.visible,
+.slide-from-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* =========================
+   FORMULARIO RSVP
+========================= */
+
+.rsvp-section-container {
+    width: 100%;
+    padding: 20px 15px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.rsvp-container {
+    width: 100%;
+    max-width: 350px;
+}
+
+label.rsvp-titulo {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #F0BAC0;
+}
+
+.rsvp-container input[type="text"],
+.rsvp-container textarea,
+.rsvp-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #F0BAC0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background: rgba(255,255,255,.95);
+    margin-bottom: 5px;
+    transition: .3s;
+}
+
+.rsvp-container textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.rsvp-container input[type="text"]:focus,
+.rsvp-container textarea:focus,
+.rsvp-container select:focus {
+    outline: none;
+    border-color: #E7AEB6;
+    box-shadow: 0 0 8px rgba(240,186,192,.35);
+}
+
+.rsvp-container button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: #F0BAC0;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: all .3s ease;
+    box-shadow: 0 4px 12px rgba(240,186,192,.4);
+}
+
+.rsvp-container button:hover {
+    background: #E7AEB6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(240,186,192,.45);
+}
+
+.rsvp-container button.cargando {
+    background: #FBE3E7 !important;
+    color: #B25368 !important;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#exito {
+    display: none;
+    text-align: center;
+    padding: 30px 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#exito h3 {
+    color: #F0BAC0;
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* =========================
+   APERTURA
+========================= */
+
+.open .envelope-flap-top {
+    transform: rotateX(-180deg);
+}
+
+.open .envelope-flap-bottom {
+    transform: rotateX(180deg);
+}
+
+.open .center-group {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.open .invitation-content {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+
+/* =========================
+   MÚSICA
+========================= */
+
+.music-player {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    background-color: #C89685;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 200;
+    transition: transform 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.music-player:active {
+    transform: scale(0.95);
+}
+
+.music-player svg {
+    width: 24px;
+    height: 24px;
+    fill: #FFFFFF;
+}
+
+.music-player.playing {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(200, 150, 133, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(200, 150, 133, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(200, 150, 133, 0);
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="fullscreen-wrapper">
+
+
+    <!-- =========================
+         SOBRE
+    ========================== -->
+
+    <div
+        class="envelope-container"
+        id="envelope"
+        onclick="openEnvelope()"
+    >
+
+        <div class="flap envelope-flap-top"></div>
+
+        <div class="flap envelope-flap-left"></div>
+
+        <div class="flap envelope-flap-right"></div>
+
+        <div class="flap envelope-flap-bottom"></div>
+
+
+        <div class="center-group">
+
+            <img
+                src="sello.png"
+                alt="Sello"
+                class="seal"
+            >
+
+            <div class="view-text">
+                Ver invitación
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CONTENIDO
+        ========================== -->
+
+        <div
+            class="invitation-content"
+            id="scrollContainer"
+        >
+
+            <div class="card-wrapper">
+
+                <!-- 1. PORTADA -->
+                <img
+                    src="portada.jpg"
+                    alt="Portada - Mis XV Años"
+                    class="invitation-img visible"
+                >
+
+                <!-- 2. PADRES -->
+                <img
+                    src="padres.jpg"
+                    alt="Padres"
+                    class="invitation-img animate-on-scroll"
+                >
+
+                <!-- 3. FECHA -->
+                <img
+                    src="fecha.jpg"
+                    alt="Fecha"
+                    class="invitation-img animate-on-scroll"
+                >
+
+                <!-- 4. CONTADOR DE DÍAS -->
+                <div class="countdown-container animate-on-scroll">
+                    <div class="countdown-title">Faltan</div>
+                    <div class="countdown-timer">
+                        <div class="time-box">
+                            <span class="time-number" id="days">00</span>
+                            <span class="time-label">Días</span>
+                        </div>
+                        <span class="time-separator">:</span>
+                        <div class="time-box">
+                            <span class="time-number" id="hours">00</span>
+                            <span class="time-label">Horas</span>
+                        </div>
+                        <span class="time-separator">:</span>
+                        <div class="time-box">
+                            <span class="time-number" id="minutes">00</span>
+                            <span class="time-label">Min</span>
+                        </div>
+                        <span class="time-separator">:</span>
+                        <div class="time-box">
+                            <span class="time-number" id="seconds">00</span>
+                            <span class="time-label">Seg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. CEREMONIA -->
+                <img
+                    src="ceremonia.jpg"
+                    alt="Ceremonia"
+                    class="invitation-img animate-on-scroll"
+                >
+
+                <!-- BOTÓN UBICACIÓN PARROQUIA (CEREMONIA) -->
+                <div class="location-container animate-on-scroll">
+                    <a
+                        href="https://www.google.com/maps/place/Parroquia+El+Se%C3%B1or+San+Jos%C3%A9/@25.7821818,-109.0055228,15z/data=!4m6!3m5!1s0x86ba2f5f18be4c91:0x56145f6cd7a04f01!8m2!3d25.7820465!4d-108.9953086!16s%2Fg%2F1td48dsw!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDkwMS4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-location"
+                    >
+                        Ver Ubicación
+                    </a>
+                </div>
+
+                <!-- 6. RECEPCIÓN -->
+                <img
+                    src="recepcion.jpg"
+                    alt="Recepción"
+                    class="invitation-img animate-on-scroll"
+                >
+
+                <!-- BOTÓN UBICACIÓN RECEPCIÓN (TRAPICHE MUSEO) -->
+                <div class="location-container animate-on-scroll">
+                    <a
+                        href="https://www.google.com/maps/place/Trapiche+Museo+Interactivo+de+Los+Mochis/@25.7885189,-109.0016366,17z/data=!4m6!3m5!1s0x86ba25f7f71ba5f3:0xa3069f56d5eae85a!8m2!3d25.7885189!4d-108.9990617!16s%2Fg%2F12hp_w5lm?hl=es_419&entry=ttu&g_ep=EgoyMDI2MDkwMS4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-location"
+                    >
+                        Ver Ubicación
+                    </a>
+                </div>
+
+                <!-- 7. IMAGEN ITINERARIO -->
+                <img
+                    src="itinerario.jpg"
+                    alt="Itinerario"
+                    class="invitation-img animate-on-scroll"
+                >
+
+                <!-- 8. ITINERARIO INTERACTIVO -->
+                <section class="itinerario-container animate-on-scroll">
+                    <div class="itinerario">
+
+                        <!-- 8:20 PM -->
+                        <div class="evento">
+                            <div class="contenido izquierda">
+                                <div class="icono">
+                                    <img src="https://i.imgur.com/xYHXeL9.png" alt="Entrada de la quinceañera">
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <span class="punto"></span>
+                            </div>
+                            <div class="contenido derecha">
+                                <div class="texto">
+                                    <span class="hora">8:20 PM</span>
+                                    <span class="momento">Entrada de la quinceañera</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8:40 PM -->
+                        <div class="evento">
+                            <div class="contenido izquierda">
+                                <div class="texto texto-izquierda">
+                                    <span class="hora">8:40 PM</span>
+                                    <span class="momento">Vals</span>
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <span class="punto"></span>
+                            </div>
+                            <div class="contenido derecha">
+                                <div class="icono">
+                                    <img src="https://i.imgur.com/qb2QFsO.png" alt="Vals">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9:00 PM -->
+                        <div class="evento">
+                            <div class="contenido izquierda">
+                                <div class="icono">
+                                    <img src="https://i.imgur.com/5iX5qn7.png" alt="Brindis">
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <span class="punto"></span>
+                            </div>
+                            <div class="contenido derecha">
+                                <div class="texto">
+                                    <span class="hora">9:00 PM</span>
+                                    <span class="momento">Brindis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9:20 PM -->
+                        <div class="evento">
+                            <div class="contenido izquierda">
+                                <div class="texto texto-izquierda">
+                                    <span class="hora">9:20 PM</span>
+                                    <span class="momento">Cena</span>
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <span class="punto"></span>
+                            </div>
+                            <div class="contenido derecha">
+                                <div class="icono">
+                                    <img src="https://i.imgur.com/BzUQM62.png" alt="Cena">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 9. SECCIÓN FONDO CON MONITOS Y VESTIMENTA -->
+                <div class="background-section">
+                    <img src="fondo.jpg" alt="Fondo" class="bg-image">
+                    
+                    <img
+                        src="monitos.png"
+                        alt="Monitos"
+                        class="overlay-img slide-from-left animate-on-scroll"
+                    >
+                    
+                    <img
+                        src="vestimenta.png"
+                        alt="Vestimenta"
+                        class="overlay-img slide-from-right animate-on-scroll"
+                    >
+                </div>
+
+                <!-- 10. FOTO TÍTULO REGALO -->
+                <img
+                    src="tituloregalo.jpg"
+                    alt="Mesa de Regalos"
+                    class="invitation-img animate-on-scroll"
+                >
+
+                <!-- 11. FOTO REGALOS -->
+                <img
+                    src="regalos.jpg"
+                    alt="Detalles de Regalos"
+                    class="invitation-img animate-on-scroll"
+                >
+
+                <!-- 12. NIÑOS -->
+                <img
+                    src="ninos.jpg"
+                    alt="Información sobre Niños"
+                    class="invitation-img animate-on-scroll"
+                >
+
+                <!-- 13. SOBRE DE LLUVIA DE SOBRES -->
+                <img
+                    src="sobre.jpg"
+                    alt="Sobre"
+                    class="invitation-img animate-on-scroll"
+                >
+
+                <!-- 14. FORMULARIO RSVP DE CONFIRMACIÓN -->
+                <div class="rsvp-section-container animate-on-scroll">
+                    <div class="rsvp-container">
+                        <div id="formContent">
+                            <form id="rsvpForm">
+                                <!-- NOMBRE -->
+                                <label class="rsvp-titulo">
+                                    Nombre completo
+                                </label>
+                                <input
+                                    type="text"
+                                    name="nombre"
+                                    id="nombre"
+                                    placeholder="Escribe tu nombre"
+                                    required>
+
+                                <!-- ASISTENCIA -->
+                                <label class="rsvp-titulo">
+                                    ¿Asistirás?
+                                </label>
+                                <select name="asistencia" id="asistencia" required>
+                                    <option value="" disabled selected>
+                                        Selecciona una opción
+                                    </option>
+                                    <option value="Sí asistiré">
+                                        Sí, asistiré
+                                    </option>
+                                    <option value="No asistiré">
+                                        No podré asistir
+                                    </option>
+                                </select>
+
+                                <!-- MENSAJE -->
+                                <label class="rsvp-titulo">
+                                    Mensaje o felicitación (opcional)
+                                </label>
+                                <textarea
+                                    name="mensaje"
+                                    id="mensaje"
+                                    placeholder="Escribe aquí tu mensaje..."></textarea>
+
+                                <!-- BOTÓN -->
+                                <button type="submit" id="btn">
+                                    ENVIAR
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- MENSAJE DE ÉXITO -->
+                        <div id="exito">
+                            <h3>
+                                ¡Muchas gracias!<br>
+                                Tu respuesta ha sido enviada con éxito.
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MÚSICA
+    ========================== -->
+
+    <div
+        class="music-player"
+        id="musicButton"
+        onclick="toggleMusic(event)"
+    >
+
+        <svg
+            id="musicIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+        >
+
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+
+        </svg>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================
+     AUDIO
+========================= -->
+
+<audio
+    id="backgroundAudio"
+    loop
+>
+
+    <source
+        src="cancion.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<script>
+
+/* =========================
+   APERTURA Y MÚSICA
+========================= */
+
+let isOpen = false;
+
+const audio = document.getElementById('backgroundAudio');
+const musicButton = document.getElementById('musicButton');
+const envelope = document.getElementById('envelope');
+
+audio.preload = "auto";
+
+
+function openEnvelope() {
+
+    if (!isOpen) {
+
+        isOpen = true;
+
+        envelope.classList.add('open');
+
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+
+            playPromise.then(() => {
+
+                musicButton.classList.add('playing');
+
+            }).catch(error => {
+
+                console.log(
+                    "Audio necesita interacción:",
+                    error
+                );
+
+            });
+
+        }
+
+        initScrollAnimations();
+    }
+
+}
+
+function toggleMusic(event) {
+
+    event.stopPropagation();
+
+    if (audio.paused) {
+
+        audio.play();
+
+        musicButton.classList.add('playing');
+
+    } else {
+
+        audio.pause();
+
+        musicButton.classList.remove('playing');
+
+    }
+
+}
+
+
+/* =========================
+   ANIMACIÓN DE SCROLL
+========================= */
+
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const scrollContainer = document.getElementById('scrollContainer');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        root: scrollContainer,
+        threshold: 0.15
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+
+/* =========================
+   CONTADOR REGRESIVO AL 7 DE NOVIEMBRE 18:00 HRS
+========================= */
+
+function updateCountdown() {
+    const now = new Date();
+    let currentYear = now.getFullYear();
+    let targetDate = new Date(`November 7, ${currentYear} 18:00:00`).getTime();
+
+    if (now.getTime() > targetDate) {
+        targetDate = new Date(`November 7, ${currentYear + 1} 18:00:00`).getTime();
+    }
+
+    const difference = targetDate - now.getTime();
+
+    if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+    }
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+
+/* =========================
+   SCRIPT RSVP GOOGLE SHEETS
+========================= */
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbzHVl3_Bt6o_12lqa5Ojcny7jrP7sTHQ9sAbO_XRFHuoO6w5dntqEkjpIklAglpI8mDVw/exec";
+
+const form = document.getElementById("rsvpForm");
+const btn = document.getElementById("btn");
+
+if (form) {
+    form.addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        btn.disabled = true;
+        btn.innerText = "Enviando...";
+        btn.classList.add("cargando");
+
+        fetch(scriptURL, {
+            method: "POST",
+            body: new FormData(form),
+            mode: "no-cors"
+        })
+
+        .then(function() {
+
+            document.getElementById("formContent").style.display = "none";
+            document.getElementById("exito").style.display = "block";
+
+        })
+
+        .catch(function() {
+
+            alert("Error al enviar.");
+
+            btn.disabled = false;
+            btn.innerText = "ENVIAR";
+            btn.classList.remove("cargando");
+
+        });
+
+    });
+}
+
+</script>
+
+
+</body>
+</html>
