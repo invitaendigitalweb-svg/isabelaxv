@@ -1729,6 +1729,40 @@ label.rsvp-titulo {
 <script>
 
 /* =========================
+   CONTADOR DE TIEMPO
+========================== */
+
+// Fecha del evento: 7 de Noviembre de 2026 (Mes 10 en JS)
+const fechaEvento = new Date(2026, 10, 7, 18, 0, 0).getTime();
+
+function actualizarContador() {
+    const ahora = new Date().getTime();
+    const diferencia = fechaEvento - ahora;
+
+    if (diferencia > 0) {
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = dias < 10 ? '0' + dias : dias;
+        document.getElementById('hours').textContent = horas < 10 ? '0' + horas : horas;
+        document.getElementById('minutes').textContent = minutos < 10 ? '0' + minutos : minutos;
+        document.getElementById('seconds').textContent = segundos < 10 ? '0' + segundos : segundos;
+    } else {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+    }
+}
+
+// Inicia el temporizador
+setInterval(actualizarContador, 1000);
+actualizarContador();
+
+
+/* =========================
    APERTURA Y MÚSICA
 ========================== */
 
